@@ -17,7 +17,7 @@ public interface TeacherService {
 
 	boolean isEmailExists(String email);
 
-	boolean isPhoneExists(String phone);
+	boolean isPhoneExists(Long newPhone);
 
 	Optional<Teacher> login(String email, String password);
 

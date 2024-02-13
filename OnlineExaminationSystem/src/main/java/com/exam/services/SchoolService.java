@@ -11,4 +11,6 @@ public interface SchoolService {
 	SchoolEntity addSchool(SchoolEntity schoolEntity);	//Add School.
 	
 	String deleteSchool(int id); //Delete Customer By id
+
+	SchoolEntity fetchSchoolById(int id);
 }

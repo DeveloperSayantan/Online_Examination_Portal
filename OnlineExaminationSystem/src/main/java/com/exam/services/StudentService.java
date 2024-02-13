@@ -22,4 +22,6 @@ public interface StudentService {
 	boolean isPhoneExists(Long phone);	//Checking phone already exists or not
 
 	StudentEntity updateStudent(int id, StudentEntity updatedStudent);
+
+	List<StudentEntity> getStudentsByClass(String cls);
 }

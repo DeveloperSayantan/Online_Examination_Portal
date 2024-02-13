@@ -25,6 +25,8 @@ public class Teacher {
 	@NotNull(message = "Enter your name")
 	@NotBlank(message = "Please Enter your name")
     private String name;
+	
+	private String subject;
 
     @NotNull(message = "Enter your email")
 	@NotBlank(message = "PLease Enter your email")
@@ -32,7 +34,7 @@ public class Teacher {
     private String email;
 
     @NotNull(message = "Enter your phone no.")
-    private String phone;
+    private Long phone;
 
     @NotNull(message = "Enter your password")
     @NotBlank(message = "Password cannot be blank")

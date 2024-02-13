@@ -10,6 +10,6 @@ import com.exam.entity.Teacher;
 public interface TeacherRepository extends JpaRepository<Teacher, Long>{
 
 	 boolean existsByEmail(String email);
-	 boolean existsByPhone(String phone);
+	 boolean existsByPhone(Long phone);
 	 Optional<Teacher> findByEmailAndPassword(String email, String password);
 }

@@ -82,4 +82,12 @@ public class StudentServiceImpl implements StudentService {
 	    return null; // Handle the case where the student with the given ID is not found
 	}
 
+	@Override
+	public List<StudentEntity> getStudentsByClass(String cls) {
+		// TODO Auto-generated method stub
+		return studentRepository.findByCls(cls);
+	}
+
+	
+
 }

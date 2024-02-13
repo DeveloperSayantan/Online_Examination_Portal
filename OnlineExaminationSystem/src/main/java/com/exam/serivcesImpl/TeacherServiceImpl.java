@@ -43,20 +43,21 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Override
 	public boolean isEmailExists(String email) {
-		// TODO Auto-generated method stub
+		
 		return teacherRepository.existsByEmail(email);
 	}
 
 	@Override
-	public boolean isPhoneExists(String phone) {
-		// TODO Auto-generated method stub
+	public boolean isPhoneExists(Long phone) {
+		
 		return teacherRepository.existsByPhone(phone);
 	}
 
 	@Override
 	public Optional<Teacher> login(String email, String password) {
-		// TODO Auto-generated method stub
+		
 		return teacherRepository.findByEmailAndPassword(email, password);
 	}
+
 
 }

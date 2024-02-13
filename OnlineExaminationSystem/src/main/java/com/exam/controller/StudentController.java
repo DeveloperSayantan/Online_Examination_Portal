@@ -54,6 +54,11 @@ public class StudentController {
 		
 		return studentService.getStudentById(id);
 	}
+
+	@GetMapping("/students/class/{cls}")
+	public List<StudentEntity> getStudentsByClass(@PathVariable String cls) {
+	        return studentService.getStudentsByClass(cls);
+	    }
 	
 	//Login by email id and password
 	@PostMapping("/login")

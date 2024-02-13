@@ -51,20 +51,38 @@ public class TeacherController {
 	    }
 /******************** Update Data *************************************************/
 	 @PutMapping("/teachers/{id}")
-	    public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacherDetails) {
-	        Teacher teacher = teacherService.getTeacherById(id);
-	        if (teacher == null) {
-	            return ResponseEntity.notFound().build();
-	        }
-	        teacher.setName(teacherDetails.getName());
-	        teacher.setEmail(teacherDetails.getEmail());
-	        teacher.setPhone(teacherDetails.getPhone());
-	        teacher.setPassword(teacherDetails.getPassword());
-	        teacher.setSchool_id(teacherDetails.getSchool_id());
-	        teacher.setBoard_id(teacherDetails.getBoard_id());
-	        Teacher updatedTeacher = teacherService.saveTeacher(teacher);
-	        return ResponseEntity.ok(updatedTeacher);
-	    }
+	 public ResponseEntity<Object> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacherUpdateRequest) {
+	     Teacher teacher = teacherService.getTeacherById(id);
+	     if (teacher == null) {
+	         return ResponseEntity.notFound().build();
+	     }
+	     
+	     if (teacherUpdateRequest.getName() != null) {
+	         teacher.setName(teacherUpdateRequest.getName());
+	     }
+	     
+	     if (teacherUpdateRequest.getEmail() != null) {
+	         teacher.setEmail(teacherUpdateRequest.getEmail());
+	     }
+	     
+	     if (teacherUpdateRequest.getPhone() != null) {
+	         Long newPhone = teacherUpdateRequest.getPhone();
+	         // Check if the provided phone already exists for another teacher
+	         if (!teacher.getPhone().equals(newPhone) && teacherService.isPhoneExists(newPhone)) {
+	             return ResponseEntity.badRequest().body("Phone already exists");
+	         } else {
+	             teacher.setPhone(newPhone);
+	         }
+	     }
+	     
+	     if (teacherUpdateRequest.getSubject() != null) {
+	         teacher.setSubject(teacherUpdateRequest.getSubject());
+	     }
+	     
+	     Teacher updatedTeacher = teacherService.saveTeacher(teacher);
+	     return ResponseEntity.ok(updatedTeacher);
+	 }
+
 /******************** Delete Data *************************************************/
 	 @DeleteMapping("/teachers/{id}")
 	    public ResponseEntity<Void> deleteTeacher(@PathVariable Long id) {
