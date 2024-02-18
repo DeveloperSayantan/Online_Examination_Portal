@@ -79,6 +79,10 @@ public class TeacherController {
 	         teacher.setSubject(teacherUpdateRequest.getSubject());
 	     }
 	     
+	     if (teacherUpdateRequest.getPassword() != null) {
+	    	 teacher.setPassword(teacherUpdateRequest.getPassword());
+	     }
+	     
 	     Teacher updatedTeacher = teacherService.saveTeacher(teacher);
 	     return ResponseEntity.ok(updatedTeacher);
 	 }
