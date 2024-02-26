@@ -34,7 +34,7 @@ public class QuestionListController {
 		
 		return questionListService.getQuestionById(id);
 	}
-	// create new question set list
+	// create new question set 
 	@PostMapping("/questionList")
     public ResponseEntity<QuestionListEntity> createQuestionSet(@RequestBody QuestionListEntity questionSet) {
         QuestionListEntity savedQuestionSet = questionListService.createQuestionSet(questionSet);

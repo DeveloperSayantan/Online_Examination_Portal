@@ -1,6 +1,7 @@
 package com.exam.entity;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class StudentEntity {
 	
 	@NotNull(message = "Enter your name")
 	@NotBlank(message = "Please Enter your name")
+	@Column(length = 50)
 	private String name;
 	
 	@NotNull(message = "Enter your class")
