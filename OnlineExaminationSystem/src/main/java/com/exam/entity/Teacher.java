@@ -20,7 +20,7 @@ import lombok.Data;
 public class Teacher {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long tid;
 
 	@NotNull(message = "Enter your name")
